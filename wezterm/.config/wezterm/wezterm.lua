@@ -172,6 +172,10 @@ config.colors = {
 
 config.keys = {
 
+	-- Configure Ctrl + v and Ctrl + c to use the system clipboard. Meaning shift isn't needed anymore.
+	{ key = "v", mods = "CTRL", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+	{ key = "c", mods = "CTRL", action = wezterm.action({ CopyTo = "Clipboard" }) },
+
 	-- I want to use <C-S-l> in harpoon, and it was some weird error anyway. so I disabled this keybind.
 	{
 		key = "L",
