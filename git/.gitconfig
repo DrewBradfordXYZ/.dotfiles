@@ -1,0 +1,7 @@
+[credential]
+	helper = store
+[user]
+	email = 16455249+DrewBradfordXYZ@users.noreply.github.com
+	name = Drew Bradford
+[init]
+	defaultBranch = main
