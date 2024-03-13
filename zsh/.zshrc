@@ -30,6 +30,9 @@ export GIT_EDITOR="nvim"
 # Accept zsh-autosuggestions
 bindkey '^Y' autosuggest-accept
 
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
 # # numbered workspaces for PopOS
 # gsettings set org.gnome.mutter dynamic-workspaces false
 # gsettings set org.gnome.desktop.wm.preferences num-workspaces 9
