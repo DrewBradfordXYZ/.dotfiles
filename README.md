@@ -11,11 +11,11 @@ sudo apt install stow
 ```bash
 # NOTE: Create the .dotfiles directory in your $HOME directory. 
 # 'echo $HOME' to find the home path.
-# home/user/.dotfiles is what we are looking for. 'user' is your username.
-# Putting .dotfile in your home directory is important.
-# 'stow' symlinks files to a target-directory.
-# When you put the .dotfiles directory in your home directory,
-# the home directory becomes the target-directory.
+# 'home/user/.dotfiles' is what we are looking for. 'user' is your username.
+# Putting this in your home directory is important because
+#  'stow' symlinks files to a target-directory.
+# When you put .dotfiles in your home directory
+#  the home directory becomes the target-directory.
 cd ~
 git clone git@github.com:DrewBradfordXYZ/dotfiles.git .dotfiles
 ```
