@@ -5,8 +5,10 @@ local opts = { noremap = true, silent = true }
 keymap('n', '<leader>f', vim.cmd.Ex, { noremap = true, silent = true, desc = 'Open file explorer' })
 
 -- Copy into system clipboard. Use C-v to paste like normal
-keymap({ 'n', 'v' }, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'System Clipboard: Yank characterwise' })
-keymap({ 'n', 'v' }, '<leader>Y', '"+Y', { noremap = true, silent = true, desc = 'System Clipboard: Yank linewise' })
+keymap({ 'n', 'v' }, '<leader>y', [["+y]], { noremap = true, silent = true, desc = 'System Clipboard: Yank characterwise' })
+keymap({ 'n', 'v' }, '<leader>Y', [["+Y,]], { noremap = true, silent = true, desc = 'System Clipboard: Yank linewise' })
+
+keymap({ 'n', 'v' }, '<leader>d', [["_d]], { noremap = true, silent = true, desc = 'System Clipboard: Delete' })
 
 -- Keep the origionally copied text when pasting over other text
 keymap('x', 'p', [["_dP]])
