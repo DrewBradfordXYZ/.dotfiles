@@ -7,9 +7,11 @@ fi
 
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+
 plug "zsh-users/zsh-autosuggestions"
+bindkey '^Y' autosuggest-accept # Use ctrl-y to accept autosuggestions
+
 plug "zap-zsh/supercharge"
-# plug "zap-zsh/zap-prompt"
 plug "romkatv/powerlevel10k"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/vim"
@@ -18,30 +20,26 @@ plug "zap-zsh/vim"
 autoload -Uz compinit
 compinit
 
+# Custom scripts
+export PATH="$HOME/.config/scripts":$PATH
+
 # Neovim version manager
 export PATH="$HOME/.local/share/bob/nvim-bin":$PATH
 
 export PATH=$PATH:/usr/local/go/bin # go
 export PATH=$PATH:/home/drew/go/bin # Needed to run 'godoc'. 'go install' puts binaries here. 
 
+# Rust binaries
+# fd requires this to be in the path
+export PATH="$PATH:/usr/lib/cargo/bin"
+
+# 'fzf'
+export FZF_DEFAULT_COMMAND="fd --type f" # fd ignores directories like .git and uses .gitignore
+source /usr/share/doc/fzf/examples/key-bindings.zsh # ctrl-t, ctrl-r, alt-c
+source /usr/share/doc/fzf/examples/completion.zsh # Context aware auto-completion: nvim **<tab>
+
 # 'git commit' opened nano in a neovim :term buffer, which was suprising.
 export GIT_EDITOR="nvim"
-
-# Accept zsh-autosuggestions
-bindkey '^Y' autosuggest-accept
-
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
-# # numbered workspaces for PopOS
-# gsettings set org.gnome.mutter dynamic-workspaces false
-# gsettings set org.gnome.desktop.wm.preferences num-workspaces 9
-# for i in {1..9} 
-# do
-#   gsettings set "org.gnome.shell.keybindings" "switch-to-application-$i" "[]"
-#   gsettings set "org.gnome.desktop.wm.keybindings" "switch-to-workspace-$i" "['<Super>${i}']"
-#   gsettings set "org.gnome.desktop.wm.keybindings" "move-to-workspace-$i" "['<Super><Shift>${i}']"
-# done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
