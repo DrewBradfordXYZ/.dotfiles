@@ -82,7 +82,7 @@ stow -R <packagename> # restows package
 
 fzf keybindings:
 
-# I found it difficult to remamp they keybindings. I'm not a fan of ALT.
+# I found it difficult to remamp these keybindings. I wishy changeum, maybe learn one day.
 
 CTRL-t	Fuzzy find all files and subdirectories of the working directory, and output the selection to STDOUT.
 ALT-c	Fuzzy find all subdirectories of the working directory, and run the command “cd” with the output as argument.
