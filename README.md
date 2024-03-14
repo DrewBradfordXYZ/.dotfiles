@@ -9,13 +9,15 @@ sudo apt install stow
 ```
 ### Download this repository.
 ```bash
-# NOTE: Create the .dotfiles directory in your $HOME directory. 
+# NOTE: Create the .dotfiles directory in your home directory. 
 # 'echo $HOME' to find the home path.
-# 'home/user/.dotfiles' is what we are looking for. 'user' is your username.
+# For example: 'home/user/.dotfiles' is what we are looking for. 'user' is your username.
 # Putting this in your home directory is important because
 #  'stow' symlinks files to a target-directory.
 # When you put .dotfiles in your home directory
 #  the home directory becomes the target-directory.
+
+# Enter the home directory
 cd ~
 git clone git@github.com:DrewBradfordXYZ/dotfiles.git .dotfiles
 ```
@@ -26,18 +28,15 @@ git clone git@github.com:DrewBradfordXYZ/dotfiles.git .dotfiles
 cd ~/.dotfiles
 
 # NOTE: The first set of subdirectories in ~/.dotfiles are *special* for 'stow'. 
-# 'stow' calles these special subdirectories *packages*.
-# Each of these packages imitate the home directory structure.
-# Packages can be thought of as a named-proxy instance of the home directory
-#  that hold the dotfiles for a specific application or configuration.
-# For example: nvim/.config/nvim will symlink to $HOME/.config/nvim.
-# The nvim/ package is a proxy for $HOME/ in this case.
+# 'stow' calls these subdirectories *packages*.
+# Packages hold the dotfiles for a specific application or configuration.
+# Each package is a mirror of the home directory structure.
+# For example: the 'nvim/' package of nvim/.config/nvim will symlink to $HOME/.config/nvim
+#  because the 'nvim/' package mirrors the '$HOME/' target-directory structure.
 
-# Run 'stow' on these package subdirectories to 
-#  symlink their file structure and dotfiles to the
-#  appropriate place in the target home directory.
-# Remember, this works because we placed .dotfile 
-#  in the home directory when we cloned the repo. 
+# Run 'stow' on these packages to 
+#  symlink their dotfiles to their
+#  mirrored location in the target-directory.
 
 # You can copy each package one at a time as you work through the setup process.
 # While in the ~/.dotfiles directory, run stow to symlink the desired packages.
