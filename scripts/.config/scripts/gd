@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Define your root directories
+root_directories=(
+    "$HOME/.dotfiles"
+    "$HOME/.dotfiles/zsh"
+    "$HOME/.dotfiles/git"
+    "$HOME/.dotfiles/nvim/.config/nvim"
+    "$HOME/.dotfiles/wezterm/.config/wezterm"
+    "$HOME/.dotfiles/scripts/.config/scripts"
+)
+
+# Use fzf to select a root directory
+selected_directory=$(printf '%s\n' "${root_directories[@]}" | fzf)
+
+# Check if a directory was selected
+if [ -n "$selected_directory" ]; then
+    # Change into the selected directory
+    cd "$selected_directory" && exec "${SHELL:-bash}"
+else
+    echo "No directory selected."
+fi
+
