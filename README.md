@@ -19,7 +19,7 @@ sudo apt install stow
 
 # Enter the home directory
 cd ~
-git clone git@github.com:DrewBradfordXYZ/dotfiles.git .dotfiles
+git clone git@github.com:DrewBradfordXYZ/dotfiles.git
 ```
 
 ### Run 'stow' to symlink dotfiles onto your machine.
