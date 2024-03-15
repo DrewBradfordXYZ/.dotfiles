@@ -9,8 +9,6 @@ fi
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
 plug "zsh-users/zsh-autosuggestions"
-bindkey '^Y' autosuggest-accept # Use ctrl-y to accept autosuggestions
-
 plug "zap-zsh/supercharge"
 plug "romkatv/powerlevel10k"
 plug "zsh-users/zsh-syntax-highlighting"
@@ -19,6 +17,8 @@ plug "zap-zsh/vim"
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
+# Use ctrl-y to accept autosuggestions
+bindkey '^Y' autosuggest-accept # Moving this up a few lines didn't work
 
 # Custom scripts
 export PATH="$HOME/.config/scripts":$PATH
