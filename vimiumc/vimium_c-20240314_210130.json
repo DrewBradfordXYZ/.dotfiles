@@ -1,0 +1,32 @@
+{
+	"name": "Vimium C",
+	"@time": "3/14/2024, 9:01:30 PM",
+	"time": 1710464490630,
+	"environment": {
+		"extension": "1.99.997",
+		"platform": "linux",
+		"firefox": 123
+	},
+	"exclusionRules": [
+		{
+			"passKeys": "a d e h i j k l o p r t v ",
+			"pattern": "^https?://excalidraw\\.com/"
+		}
+	],
+	"grabBackFocus": true,
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"map H previousTab",
+		"map L nextTab",
+		"map J goBack",
+		"map K goForward",
+		"map <c-d> scrollPageDown",
+		"map <c-u> scrollPageUp",
+		"map < moveTabLeft",
+		"map > moveTabRight",
+		"map s passNextKey",
+		""
+	],
+	"vimSync": true
+}
