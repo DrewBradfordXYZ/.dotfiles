@@ -2,12 +2,13 @@
 
 # Define your root directories
 root_directories=(
-    "$HOME/.dotfiles"
-    "$HOME/.dotfiles/zsh"
-    "$HOME/.dotfiles/git"
-    "$HOME/.dotfiles/nvim/.config/nvim"
-    "$HOME/.dotfiles/wezterm/.config/wezterm"
-    "$HOME/.dotfiles/scripts/.config/scripts"
+    "$HOME/.dotfiles/"
+    "$HOME/.dotfiles/zsh/"
+    "$HOME/.dotfiles/git/"
+    "$HOME/.dotfiles/vimiumc/"
+    "$HOME/.dotfiles/nvim/.config/nvim/"
+    "$HOME/.dotfiles/wezterm/.config/wezterm/"
+    "$HOME/.dotfiles/scripts/.config/scripts/"
 )
 
 # Use fzf to select a root directory
