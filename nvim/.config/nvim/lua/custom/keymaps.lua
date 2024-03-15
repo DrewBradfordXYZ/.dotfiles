@@ -8,7 +8,8 @@ keymap('n', '<leader>f', vim.cmd.Ex, { noremap = true, silent = true, desc = 'Op
 keymap({ 'n', 'v' }, '<leader>y', [["+y]], { noremap = true, silent = true, desc = 'System Clipboard: Yank characterwise' })
 keymap({ 'n', 'v' }, '<leader>Y', [["+Y,]], { noremap = true, silent = true, desc = 'System Clipboard: Yank linewise' })
 
-keymap({ 'n', 'v' }, '<leader>d', [["_d]], { noremap = true, silent = true, desc = 'System Clipboard: Delete' })
+-- Delete wihout any clipboard interaction
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
 -- Keep the origionally copied text when pasting over other text
 keymap('x', 'p', [["_dP]])
