@@ -76,7 +76,7 @@ config.font = wezterm.font_with_fallback({ fonts[1], emoji_fonts[1], emoji_fonts
 config.front_end = "WebGpu"
 config.enable_scroll_bar = false
 config.scrollback_lines = 10240
-config.font_size = 18
+config.font_size = 16
 config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = false
 config.automatically_reload_config = true
@@ -168,7 +168,7 @@ config.colors = {
 	},
 }
 
--- local act = wezterm.action
+local act = wezterm.action
 
 config.keys = {
 	-- Using SHIFT to copy paste in the terminal/neovim to NO-SHIFT in the browser is scuffed.
@@ -181,6 +181,12 @@ config.keys = {
 	-- It means "End of Text" or "ETX" in the ASCII table.
 	{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ SendString = "\x03" }) },
 
+	{
+		key = "t",
+		mods = "CTRL|SHIFT",
+		action = act.SpawnTab("CurrentPaneDomain"),
+	},
+
 	-- I want to use <C-S-l> in harpoon, and it was some weird error anyway. so I disabled this keybind.
 	{
 		key = "L",
@@ -188,9 +194,16 @@ config.keys = {
 		action = wezterm.action.DisableDefaultAssignment,
 	},
 
-	-- { key = "a", mods = "ctrl", action = act.ActivateTabRelative(-1) },
-	--
-	-- { key = "b", mods = "ctrl", action = act.ActivateTabRelative(1) },
+	-- { key = "h", mods = "ctrl", action = act.ActivateTabRelative(-1) },
+	-- { key = "l", mods = "ctrl", action = act.ActivateTabRelative(1) },
 }
-
+-- Activate the tab specified by the argument value. eg: 0 activates the leftmost tab, while 1 activates the second tab from the left, and so on.
+for i = 1, 8 do
+	-- CTRL+SHIFT + number to activate that tab
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = "CTRL|ALT",
+		action = act.ActivateTab(i - 1),
+	})
+end
 return config
