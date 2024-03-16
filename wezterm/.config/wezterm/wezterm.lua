@@ -171,10 +171,15 @@ config.colors = {
 -- local act = wezterm.action
 
 config.keys = {
-
-	-- Configure Ctrl + v and Ctrl + c to use the system clipboard. Meaning shift isn't needed anymore.
+	-- Using SHIFT to copy paste in the terminal/neovim to NO-SHIFT in the browser is scuffed.
+	-- But if I copy with Ctrl + c, I lose the default keybind to stop a terminal process.
+	-- The internet is annoyed that I want to fix this.
+	-- I failed in zshrc, but this works in wezterm.
 	{ key = "v", mods = "CTRL", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 	{ key = "c", mods = "CTRL", action = wezterm.action({ CopyTo = "Clipboard" }) },
+	-- \x03 is what the default Ctrl + c keybind sends to end a terminal process.
+	-- It means "End of Text" or "ETX" in the ASCII table.
+	{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ SendString = "\x03" }) },
 
 	-- I want to use <C-S-l> in harpoon, and it was some weird error anyway. so I disabled this keybind.
 	{
