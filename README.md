@@ -65,19 +65,9 @@ stow -R <packagename> # restows package
 # Maybe using the package manager wasn't a good idea. Not sure.
 #  ¯\_(ツ)_/¯
 # Later, I found out I had to source files in .zshrc to get completion and keybindings to work.
-# Note to future self:: Fzf and Bash and std commands is something I need to dig into. 
-# I wish it was more friendly. Chatgpt struggled to help me with this.
-
-# Check .zshrc for updates:
-# source /usr/share/doc/fzf/examples/key-bindings.zsh
-# source /usr/share/doc/fzf/examples/completion.zsh
-
 # 'fd' makes 'fzf' much better. 'fd' happened to already be installed with cargo. 
 # Add cargo/bin to the path if it is not there already.
-
-# Check .zshrc for updates:
-# export PATH="$PATH:/usr/lib/cargo/bin"
-# export FZF_DEFAULT_COMMAND="fd --type f"
+# Check .zshrc for updates
 
 fzf keybindings:
 
