@@ -17,9 +17,8 @@ keymap('x', 'p', [["_dP]])
 -- Keep the cursor at the start of joined lines
 keymap('n', 'J', 'mzJ`z', { noremap = true, silent = true, desc = 'Join lines' })
 
--- Quit and save
+-- Quit shortcut
 keymap('n', '<leader>x', ':q<CR>', { noremap = true, silent = true, desc = 'Quit window' })
-keymap('n', '<leader>a', ':w<CR>', { noremap = true, silent = true, desc = 'Save file' })
 
 -- Create new window splits
 keymap('n', '<leader>t', '<C-w>s', { desc = 'Split window horizontally' })
