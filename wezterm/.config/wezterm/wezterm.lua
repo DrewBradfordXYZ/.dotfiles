@@ -186,6 +186,11 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = act.SpawnTab("CurrentPaneDomain"),
 	},
+	{
+		key = "x",
+		mods = "CTRL",
+		action = wezterm.action.CloseCurrentTab({ confirm = true }),
+	},
 
 	-- I want to use <C-S-l> in harpoon, and it was some weird error anyway. so I disabled this keybind.
 	{
@@ -200,9 +205,9 @@ config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.window_padding = {
-	left = 2,
-	right = 2,
-	top = 0,
+	left = 15,
+	right = 15,
+	top = 15,
 	bottom = 0,
 }
 config.window_frame = {
