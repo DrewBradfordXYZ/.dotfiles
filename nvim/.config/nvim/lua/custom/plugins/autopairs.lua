@@ -1,5 +1,6 @@
 return {
   'windwp/nvim-autopairs',
+  enabled = false, -- this turns this plugin on/off
   event = 'InsertEnter',
   config = true,
   -- this is equalent to setup({}) function
