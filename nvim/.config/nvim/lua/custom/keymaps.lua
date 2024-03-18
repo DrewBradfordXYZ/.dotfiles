@@ -4,12 +4,14 @@ local opts = { noremap = true, silent = true }
 -- Netrw file explorer
 keymap('n', '<leader>f', vim.cmd.Vex, { noremap = true, silent = true, desc = 'Open file explorer' })
 
--- Copy into system clipboard. Use C-v to paste like normal
+-- Copy into system clipboard.
 keymap({ 'n', 'v' }, '<leader>y', [["+y]], { noremap = true, silent = true, desc = 'System Clipboard: Yank characterwise' })
 keymap({ 'n', 'v' }, '<leader>Y', [["+Y,]], { noremap = true, silent = true, desc = 'System Clipboard: Yank linewise' })
-
--- Delete into system clipboard. Use C-v to paste like normal
-vim.api.nvim_set_keymap('v', '<leader>d', '"+ygv"_d', { noremap = true, silent = true })
+-- Paste from system clipboard.
+keymap({ 'n', 'v' }, '<leader>p', [["+p]], { noremap = true, silent = true, desc = 'System Clipboard: Paste After' })
+keymap({ 'n', 'v' }, '<leader>P', [["+P]], { noremap = true, silent = true, desc = 'System Clipboard: Paste Before' })
+-- Delete into system clipboard.
+keymap('v', '<leader>d', '"+ygv"_d', { desc = 'System Clipboard: Delete', noremap = true, silent = true })
 
 -- Keep the origionally copied text when pasting over other text
 keymap('x', 'p', [["_dP]])
@@ -17,9 +19,11 @@ keymap('x', 'p', [["_dP]])
 -- Keep the cursor at the start of joined lines
 keymap('n', 'J', 'mzJ`z', { noremap = true, silent = true, desc = 'Join lines' })
 
--- Quit and Save
+-- Quit
 keymap('n', '<leader>x', ':q<CR>', { noremap = true, silent = true, desc = 'Quit window' })
+-- Save
 keymap('n', '<leader>g', ':w<CR>', { noremap = true, silent = true, desc = 'Quit window' })
+
 -- Create new window splits
 keymap('n', '<leader>t', '<C-w>s', { desc = 'Split window horizontally' })
 keymap('n', '<leader>v', '<C-w>v', { desc = 'Split window vertically' })
