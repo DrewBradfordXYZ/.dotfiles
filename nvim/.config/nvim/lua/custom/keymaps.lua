@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Netrw file explorer
-keymap('n', '<leader>f', vim.cmd.Ex, { noremap = true, silent = true, desc = 'Open file explorer' })
+keymap('n', '<leader>f', vim.cmd.Vex, { noremap = true, silent = true, desc = 'Open file explorer' })
 
 -- Copy into system clipboard. Use C-v to paste like normal
 keymap({ 'n', 'v' }, '<leader>y', [["+y]], { noremap = true, silent = true, desc = 'System Clipboard: Yank characterwise' })
