@@ -87,4 +87,23 @@ gd  # This is a bash script I wrote to help navigate this .dotfile repository.
 
 ```
 
+### System clipboard manager
+
+```bash
+# If copy and paste is not working in neovim, you may need to install a clipboard manager.
+# Check if neovim has clipboard support.
+nvim
+:echo has('clipboard')
+# If the output is 0, then you should try installing a clipboard manager.
+
+# Linux:
+# Note: 'xclip' is for X11.
+# Wayland users may need to use 'wl-clipboard' instead, but I have not tested it.
+
+which xclip # Check if xclip is installed
+sudo apt update
+sudo apt install xclip 
+
+```
+
 
