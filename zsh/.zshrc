@@ -5,25 +5,34 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# source zsh plugins
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.zsh_profile
-
-bindkey '^y' autosuggest-accept
-
-export XDG_CONFIG_HOME=$HOME/.config
-
+# source fzf keybindings
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
-#export PATH="$HOME/.config":$PATH
+# Neovim alias
+alias nv="nvim"
 
+# Ctrl-y accepts zsh autosuggestions
+bindkey '^y' autosuggest-accept
+# Ctrl-f opens sessions in tmux
+bindkey -s ^f "tmux-sessionizer\n"
+# Ctrl-g select stow .dotfile directories
+bindkey -s ^g "fzf-dotfiles\n"
+
+# Nano is another planet
+export GIT_EDITOR="nvim"
+# Scripts
 export SCRIPTS="$HOME/.local/bin"
 export PATH="$SCRIPTS":$PATH
+# Rust binaries, e.g. fd
+export RUST_BIN="usr/lib/cargo/bin"
+export PATH=$PATH:"$RUST_BIN"
 # Neovim version manager
-export BOB_INSTALL="$HOME/.local/share/bob/nvim-bin"
-export PATH="$BOB_INSTALL":$PATH
-
+export NVIM_INSTALL="$HOME/.local/share/bob/nvim-bin"
+export PATH="$NVIM_INSTALL":$PATH
 # Go command
 export GO_CMD="/usr/local/go/bin"
 export PATH=$PATH:"$GO_CMD" # go
@@ -35,11 +44,6 @@ export PATH=$PATH:"$GOPATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export GIT_EDITOR="nvim"
-
-bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^g "fzf-dotfiles\n"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
