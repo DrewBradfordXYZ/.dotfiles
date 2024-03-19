@@ -26,4 +26,4 @@ export NVM_DIR="$HOME/.nvm"
 export GIT_EDITOR="nvim"
 
 bindkey -s ^f "tmux-sessionizer\n"
-
+bindkey -s ^g "fzf-dotfiles\n"
