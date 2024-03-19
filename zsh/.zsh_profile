@@ -1,0 +1,29 @@
+export XDG_CONFIG_HOME=$HOME/.config
+
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
+#export PATH="$HOME/.config":$PATH
+
+export SCRIPTS="$HOME/.local/bin"
+export PATH="$SCRIPTS":$PATH
+# Neovim version manager
+export BOB_INSTALL="$HOME/.local/share/bob/nvim-bin"
+export PATH="$BOB_INSTALL":$PATH
+
+# Go command
+export GO_CMD="/usr/local/go/bin"
+export PATH=$PATH:"$GO_CMD" # go
+# Go path
+export GO_PATH="$HOME/go/bin"
+export PATH=$PATH:"$GOPATH" 
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export GIT_EDITOR="nvim"
+
+bindkey -s ^f "tmux-sessionizer\n"
+
