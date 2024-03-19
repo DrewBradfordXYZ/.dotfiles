@@ -20,9 +20,6 @@ compinit
 # Use ctrl-y to accept autosuggestions
 bindkey '^Y' autosuggest-accept # Moving this up a few lines didn't work
 
-# Custom scripts
-export PATH="$HOME/.config/scripts":$PATH
-
 # Neovim version manager
 export PATH="$HOME/.local/share/bob/nvim-bin":$PATH
 

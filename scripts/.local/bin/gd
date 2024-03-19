@@ -7,8 +7,9 @@ root_directories=(
     "$HOME/.dotfiles/git/"
     "$HOME/.dotfiles/vimiumc/"
     "$HOME/.dotfiles/nvim/.config/nvim/"
+    "$HOME/.dotfiles/tmux/.config/tmux/"
     "$HOME/.dotfiles/wezterm/.config/wezterm/"
-    "$HOME/.dotfiles/scripts/.config/scripts/"
+    "$HOME/.dotfiles/scripts/.local/bin/"
 )
 
 # Use fzf to select a root directory
