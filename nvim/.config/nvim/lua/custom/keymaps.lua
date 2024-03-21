@@ -54,6 +54,3 @@ keymap('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = 'Mo
 -- Stay in indent mode
 keymap('v', '<', '<gv', opts)
 keymap('v', '>', '>gv', opts)
-
--- Search and replace word under cursor
-keymap('n', '<C-s>', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
