@@ -253,7 +253,7 @@ awful.screen.connect_for_each_screen(function(s)
 		buttons = tasklist_buttons,
 	})
 
-	-- Import module:
+	-- https://github.com/deficient/battery-widget
 	local battery_widget = require("battery-widget")
 
 	-- Create the wibox
