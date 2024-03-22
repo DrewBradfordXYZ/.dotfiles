@@ -141,7 +141,6 @@ else
 	})
 end
 
--- I think this is part of the menu system that I removed
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
