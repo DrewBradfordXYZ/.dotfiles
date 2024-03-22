@@ -153,7 +153,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock("  %a %b %d, %I:%M %p ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -253,6 +253,9 @@ awful.screen.connect_for_each_screen(function(s)
 		buttons = tasklist_buttons,
 	})
 
+	-- Import module:
+	local battery_widget = require("battery-widget")
+
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -268,7 +271,41 @@ awful.screen.connect_for_each_screen(function(s)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			mykeyboardlayout,
+			-- mykeyboardlayout,
+			battery_widget({
+				ac = "AC",
+				adapter = "BAT0",
+				ac_prefix = {
+					{ 25, "not charged" },
+					{ 50, "1/4 charged" },
+					{ 75, "2/4 charged" },
+					{ 95, "3/4 charged" },
+					{ 100, "fully charged" },
+				},
+				battery_prefix = {
+					{ 25, "#--- " },
+					{ 50, "##-- " },
+					{ 75, "###- " },
+					{ 100, "#### " },
+				},
+				percent_colors = {
+					{ 25, "red" },
+					{ 50, "orange" },
+					{ 999, "white" },
+				},
+				listen = true,
+				timeout = 10,
+				widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
+				-- widget_font = "Deja Vu Sans Mono 16",
+				tooltip_text = "Battery ${state}${time_est}\nCapacity: ${capacity_percent}%",
+				alert_threshold = 5,
+				alert_timeout = 0,
+				alert_title = "Low battery !",
+				alert_text = "${AC_BAT}${time_est}",
+				alert_icon = "~/Downloads/low_battery_icon.png",
+				warn_full_battery = true,
+				full_battery_icon = "~/Downloads/full_battery_icon.png",
+			}),
 			wibox.widget.systray(),
 			mytextclock,
 			s.mylayoutbox,
@@ -291,6 +328,9 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "/", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
+	awful.key({ modkey, "Shift" }, "r", function()
+		awful.spawn("autorandr --change")
+	end, { description = "Change display configuration", group = "hotkeys" }),
 
 	-- Master and column manipulation
 	awful.key({ modkey }, "m", function()
