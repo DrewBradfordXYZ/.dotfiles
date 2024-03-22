@@ -4,10 +4,11 @@
 root_directories=(
     "$HOME/.dotfiles/"
     "$HOME/.dotfiles/zsh/"
+    "$HOME/.dotfiles/tmux/"
     "$HOME/.dotfiles/git/"
     "$HOME/.dotfiles/vimiumc/"
     "$HOME/.dotfiles/nvim/.config/nvim/"
-    "$HOME/.dotfiles/tmux/"
+    "$HOME/.dotfiles/awesome/.config/awesome/"
     "$HOME/.dotfiles/wezterm/.config/wezterm/"
     "$HOME/.dotfiles/scripts/.local/bin/"
 )
