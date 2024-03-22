@@ -60,30 +60,13 @@ stow -R <packagename> # restows package
 
 ### Install fzf: A command-line fuzzy finder. 
 ```bash
+# 'fzf' is used with tmux to set up project sessions with bash scripts.
+# tmux-sessionizer.sh uses 'fzf' to select a project directory.
 
-# Well stdfoo... Double check the intall instructions. I may have missed something.
-# Maybe using the package manager wasn't a good idea. Not sure.
-#  ¯\_(ツ)_/¯
-# Later, I found out I had to source files in .zshrc to get completion and keybindings to work.
-# 'fd' makes 'fzf' much better. 'fd' happened to already be installed with cargo. 
-# Add cargo/bin to the path if it is not there already.
-# Check .zshrc for updates
-
-fzf keybindings:
-
-# I found it difficult to remamp these keybindings. I wishy changeum, maybe learn one day.
-
+# 'fzf' keybindings:
 CTRL-t	Fuzzy find all files and subdirectories of the working directory, and output the selection to STDOUT.
 ALT-c	Fuzzy find all subdirectories of the working directory, and run the command “cd” with the output as argument.
 CTRL-r	Fuzzy find through your shell history, and output the selection to STDOUT.
-
-gd  # This is a bash script I wrote to help navigate this .dotfile repository. 
-    # It uses fzf to navigate.
-    # The bash file is located in the scripts package for stow.
-    # Check that the scripts package is 'stow'ed
-    # Check that $HOME/.config/scripts is in the $PATH.
-    # Why?: I found stow pakages annoying to move around and 'cd' into 
-    #  because they have a nested dir structure inorder to imitate the home directory.
 
 ```
 
@@ -105,5 +88,20 @@ sudo apt update
 sudo apt install xclip 
 
 ```
+### External monitor configuration
+This may be needed for window managers like AwesomeWM.
 
+https://github.com/phillipberndt/autorandr?tab=readme-ov-file
+```bash
+# Install
+sudo apt update
+sudo apt install autorandr
+
+# Create a display configuration and setup.
+autorandr --save <name>
+
+# Trigger a display refresh.
+# Keybind set in the window manager.
+autorandr --change
+```
 
