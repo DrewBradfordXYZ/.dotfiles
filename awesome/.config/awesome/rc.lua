@@ -22,6 +22,8 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+local xrandr = require("xrandr")
+
 -- Enable touch-to-click
 local function enableTouchToClick()
 	-- Use xinput command to find the touchpad device ID
@@ -335,10 +337,13 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+	awful.key({ mods.super }, "r", function()
+		xrandr.xrandr()
+	end),
 
-	awful.key({ mods.super, mods.shift }, "r", function()
-		awful.spawn("autorandr --change")
-	end, { description = "Change display configuration", group = "hotkeys" }),
+	-- awful.key({ mods.super, mods.shift }, "r", function()
+	-- 	awful.spawn("autorandr --change")
+	-- end, { description = "Change display configuration", group = "hotkeys" }),
 	awful.key({ mods.super, mods.control }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ mods.super, mods.shift }, "Escape", awesome.quit, { description = "quit awesome", group = "awesome" }),
 	awful.key({ mods.super }, "/", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -492,7 +497,7 @@ globalkeys = gears.table.join(
 	-- end, { description = "restore minimized", group = "client" }),
 
 	-- Prompt
-	awful.key({ mods.super }, "r", function()
+	awful.key({ mods.super, mods.shift }, "r", function()
 		awful.screen.focused().mypromptbox:run()
 	end, { description = "run prompt", group = "launcher" }),
 
@@ -765,6 +770,7 @@ tag.connect_signal("request::screen", function(t)
 	-- delete the tag and move it to other screen
 	t:delete(fallback_tag, true)
 end)
+
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
 	c:emit_signal("request::activate", "mouse_enter", { raise = false })
