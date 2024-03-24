@@ -405,11 +405,11 @@ globalkeys = gears.table.join(
 
 	-- Focus screen
 	awful.key({ mods.super }, "f", function()
-		awful.screen.focus_relative(1)
-	end, { description = "focus the next screen", group = "screen" }),
-	awful.key({ mods.super }, "d", function()
-		awful.screen.focus_relative(-1)
-	end, { description = "focus the previous screen", group = "screen" }),
+		awful.screen.focus(2)
+	end, { description = "focus 2nd screen", group = "screen" }),
+	awful.key({ mods.super }, "s", function()
+		awful.screen.focus(1)
+	end, { description = "focus 1st screen", group = "screen" }),
 
 	-- TODO: error
 	-- awful.key({ mods.super }, "w", function()
@@ -542,7 +542,7 @@ clientkeys = gears.table.join(
 	end, { description = "move to master", group = "client" }),
 
 	-- Move over to screen
-	awful.key({ mods.super }, "s", function(c)
+	awful.key({ mods.super }, "g", function(c)
 		c:move_to_screen()
 	end, { description = "send to screen", group = "client" })
 
