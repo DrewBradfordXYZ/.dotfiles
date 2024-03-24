@@ -312,7 +312,7 @@ awful.screen.connect_for_each_screen(function(s)
 				alert_title = "Low battery !",
 				alert_text = "${AC_BAT}${time_est}",
 				alert_icon = "~/Downloads/low_battery_icon.png",
-				warn_full_battery = true,
+				warn_full_battery = false,
 				full_battery_icon = "~/Downloads/full_battery_icon.png",
 			}),
 			wibox.widget.systray(),
