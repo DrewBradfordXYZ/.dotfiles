@@ -501,7 +501,7 @@ globalkeys = gears.table.join(
 		awful.screen.focused().mypromptbox:run()
 	end, { description = "run prompt", group = "launcher" }),
 
-	awful.key({ mods.super }, "x", function()
+	awful.key({ mods.super }, "c", function()
 		awful.prompt.run({
 			prompt = "Run Lua code: ",
 			textbox = awful.screen.focused().mypromptbox.widget,
@@ -524,7 +524,7 @@ clientkeys = gears.table.join(
 	-- end, { description = "toggle fullscreen", group = "client" }),
 
 	-- Close the window
-	awful.key({ mods.super, mods.shift }, "c", function(c)
+	awful.key({ mods.super }, "x", function(c)
 		c:kill()
 	end, { description = "close", group = "client" }),
 
