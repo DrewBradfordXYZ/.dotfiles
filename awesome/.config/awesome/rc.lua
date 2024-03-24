@@ -78,7 +78,7 @@ beautiful.init("~/.config/awesome/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "wezterm"
 browser = "firefox"
-editor = os.getenv("EDITOR") or "editor"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
