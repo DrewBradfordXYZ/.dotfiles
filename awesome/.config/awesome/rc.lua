@@ -742,6 +742,29 @@ client.connect_signal("request::titlebars", function(c)
 	})
 end)
 
+-- Merge tags with same name on different screens
+-- https://github.com/awesomeWM/awesome/issues/1382#issuecomment-289378695
+tag.connect_signal("request::screen", function(t)
+	local fallback_tag = nil
+
+	-- find tag with same name on any other screen
+	for other_screen in screen do
+		if other_screen ~= t.screen then
+			fallback_tag = awful.tag.find_by_name(other_screen, t.name)
+			if fallback_tag ~= nil then
+				break
+			end
+		end
+	end
+
+	-- no tag with same name exists, chose random one
+	if fallback_tag == nil then
+		fallback_tag = awful.tag.find_fallback()
+	end
+
+	-- delete the tag and move it to other screen
+	t:delete(fallback_tag, true)
+end)
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
 	c:emit_signal("request::activate", "mouse_enter", { raise = false })
