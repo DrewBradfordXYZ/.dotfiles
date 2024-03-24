@@ -285,7 +285,7 @@ awful.screen.connect_for_each_screen(function(s)
 				ac = "AC",
 				adapter = "BAT0",
 				ac_prefix = {
-					{ 25, "not charged" },
+					{ 25, "warning" },
 					{ 50, "1/4 charged " },
 					{ 75, "2/4 charged " },
 					{ 95, "3/4 charged " },
