@@ -336,6 +336,9 @@ root.buttons(gears.table.join(
 -- }}}
 
 -- {{{ Key bindings
+
+-- Monitor screen setup support
+-- Pressing C-r repeatedly will cycle through the available screen configurations
 globalkeys = gears.table.join(
 	awful.key({ mods.super }, "r", function()
 		xrandr.xrandr()
