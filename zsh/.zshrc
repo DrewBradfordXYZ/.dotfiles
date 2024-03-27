@@ -38,7 +38,7 @@ export GO_CMD="/usr/local/go/bin"
 export PATH=$PATH:"$GO_CMD" # go
 # Go path
 export GO_PATH="$HOME/go/bin"
-export PATH=$PATH:"$GOPATH" 
+export PATH=$PATH:"$GO_PATH"
 
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
