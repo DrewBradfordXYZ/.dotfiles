@@ -1,9 +1,23 @@
 #!/usr/bin/env bash
 
+directories=(
+    ~/
+    ~/work
+    ~/personal
+    ~/projects
+    ~/.dotfiles/zsh
+    ~/.dotfiles/tmux
+    ~/.dotfiles/scripts/.local/
+    ~/.dotfiles/nvim/.config
+    ~/.dotfiles/wezterm/.config
+    ~/.dotfiles/awesome/.config
+)
+
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/work ~/projects ~/ ~/personal ~/.dotfiles -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find "${directories[@]}" -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
