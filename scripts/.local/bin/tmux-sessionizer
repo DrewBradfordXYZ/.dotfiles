@@ -5,8 +5,7 @@ directories=(
     ~/work
     ~/personal
     ~/projects
-    ~/.dotfiles/zsh
-    ~/.dotfiles/tmux
+    ~/.dotfiles/
     ~/.dotfiles/scripts/.local/
     ~/.dotfiles/nvim/.config
     ~/.dotfiles/wezterm/.config
