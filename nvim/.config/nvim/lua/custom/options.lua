@@ -24,4 +24,5 @@ vim.o.sidescrolloff = 8
 
 -- Netrw modifications
 vim.g.netrw_banner = 0 -- Disable banner
+-- vim.g.netrw_browse_split = 4 -- Open in previous window
 -- vim.g.netrw_liststyle = 3 -- Tree view

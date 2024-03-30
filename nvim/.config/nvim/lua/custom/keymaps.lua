@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Netrw file explorer
-keymap('n', '<leader>f', vim.cmd.Vex, { noremap = true, silent = true, desc = 'Open file explorer' })
+keymap('n', '<leader>f', vim.cmd.Ex, { noremap = true, silent = true, desc = 'Open file explorer' })
 
 -- Open a new tmux session while in neovim. You must be in an active tmux session for this to work.
 keymap('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { silent = true })
